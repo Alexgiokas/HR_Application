@@ -1,0 +1,25 @@
+When StartButton.Click do
+    Clock.Enabled = True
+    Clock.TimerInterval = 1000
+
+When StopButton.Click do
+    Clock.Enabled = False
+
+When Clock.Timer do
+    global milliseconds
+    global seconds
+    global minutes
+
+    milliseconds = milliseconds + 1
+
+    if milliseconds = 1000 then
+        seconds = seconds + 1
+        milliseconds = 0
+    end if
+
+    if seconds = 60 then
+        minutes = minutes + 1
+        seconds = 0
+    end if
+
+    TimerLabel.Text = minutes & ":" & seconds & ":" & milliseconds
