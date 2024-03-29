@@ -1,25 +1,20 @@
-When StartButton.Click do
-    Clock.Enabled = True
-    Clock.TimerInterval = 1000
+class Dog:
+    def __init__(self, breed, size, color):
+        self.breed = breed
+        self.size = size
+        self.color = color
+        print("breed:", self.breed, "size:", self.size, "color:", self.color)
+        
+    def eat(self, food):
+        self.food = food
+        print("I am eating", food)
+        
+    def bark(self):
+        print("I am barking")
 
-When StopButton.Click do
-    Clock.Enabled = False
+Max = Dog("terrier", "medium", "brown")
+Rocky = Dog("labrador", "large", "light brown")
 
-When Clock.Timer do
-    global milliseconds
-    global seconds
-    global minutes
+Max.eat("bone")
+Rocky.eat("meat")
 
-    milliseconds = milliseconds + 1
-
-    if milliseconds = 1000 then
-        seconds = seconds + 1
-        milliseconds = 0
-    end if
-
-    if seconds = 60 then
-        minutes = minutes + 1
-        seconds = 0
-    end if
-
-    TimerLabel.Text = minutes & ":" & seconds & ":" & milliseconds
